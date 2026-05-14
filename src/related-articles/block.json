@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wpvdb-blocks/related-articles",
+	"version": "0.1.0",
+	"title": "Related articles",
+	"category": "widgets",
+	"icon": "admin-links",
+	"description": "Display related articles powered by WPVDB Search.",
+	"keywords": [
+		"related",
+		"articles",
+		"semantic"
+	],
+	"textdomain": "wpvdb-blocks",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Related articles"
+		},
+		"limit": {
+			"type": "number",
+			"default": 5
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"usesContext": [
+		"postId"
+	],
+	"supports": {
+		"anchor": true,
+		"color": {
+			"background": true,
+			"link": true,
+			"text": true
+		},
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"style": "file:./style-index.css"
+}

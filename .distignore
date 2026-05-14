@@ -1,0 +1,22 @@
+# Files to exclude from the release bundle.
+.git
+.gitignore
+.DS_Store
+Thumbs.db
+composer.json
+composer.lock
+package.json
+package-lock.json
+bun.lock
+phpcs.xml
+README.md
+*.sql
+*.tar.gz
+*.zip
+
+# Directories
+release
+src
+vendor
+node_modules
+AGENTS.md
