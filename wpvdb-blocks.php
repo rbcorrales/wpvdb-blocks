@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name:      WPVDB Blocks
- * Plugin URI:       https://github.com/rbcorrales/wpvdb-blocks
- * Description:      Adds editorial blocks powered by WPVDB Search.
- * Version:          0.1.0
- * Author:           Automattic, Ramon Corrales
- * Author URI:       https://automattic.com/
+ * Plugin Name:       WPVDB Blocks
+ * Plugin URI:        https://github.com/rbcorrales/wpvdb-blocks
+ * Description:       Adds editorial blocks powered by WPVDB Search.
+ * Version:           0.1.0
+ * Author:            Automattic, Ramon Corrales
+ * Author URI:        https://automattic.com/
  * Requires at least: 6.9
- * Requires PHP:     8.3
- * Requires Plugins: wpvdb-search
- * License:          GPL-2.0-or-later
- * License URI:      https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:      wpvdb-blocks
- * Domain Path:      /languages
+ * Requires PHP:      8.3
+ * Requires Plugins:  wpvdb-search
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       wpvdb-blocks
+ * Domain Path:       /languages
  *
  * @package WPVDB_Blocks
  */
