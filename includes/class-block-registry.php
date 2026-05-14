@@ -57,13 +57,13 @@ class Block_Registry {
 	/**
 	 * Return registered block classes.
 	 *
-	 * @return array
+	 * @return array<int|string, mixed>
 	 */
 	private static function blocks(): array {
 		/**
 		 * Filters the block classes registered by WPVDB Blocks.
 		 *
-		 * @param array $blocks Block class names.
+		 * @param array<int, class-string> $blocks Block class names.
 		 */
 		return (array) apply_filters( 'wpvdb_blocks_registered_blocks', self::BLOCKS );
 	}

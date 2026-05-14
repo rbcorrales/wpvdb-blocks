@@ -94,9 +94,9 @@ class Related_Articles_Block {
 	/**
 	 * Render the block.
 	 *
-	 * @param array     $attributes Block attributes.
-	 * @param string    $content    Saved block content.
-	 * @param \WP_Block $block      Block instance.
+	 * @param array<string, mixed> $attributes Block attributes.
+	 * @param string               $content    Saved block content.
+	 * @param \WP_Block            $block      Block instance.
 	 * @return string
 	 */
 	public static function render( array $attributes, string $content = '', ?\WP_Block $block = null ): string {
@@ -145,7 +145,7 @@ class Related_Articles_Block {
 	/**
 	 * Return the HTML allowed by the block render template.
 	 *
-	 * @return array
+	 * @return array<string, array<string, bool>>
 	 */
 	public static function allowed_html(): array {
 		$global_attributes = [
@@ -182,7 +182,7 @@ class Related_Articles_Block {
 	 * @param int  $post_id      Source post ID.
 	 * @param int  $limit        Max related items.
 	 * @param bool $show_excerpt Include excerpts.
-	 * @return array|\WP_Error
+	 * @return list<array<string, mixed>>|\WP_Error
 	 */
 	private static function items_for_post( int $post_id, int $limit, bool $show_excerpt ): array|\WP_Error {
 		$result = \WPVDB_Search\Search::related_to_post(
@@ -222,9 +222,9 @@ class Related_Articles_Block {
 	/**
 	 * Normalize a search row for block rendering.
 	 *
-	 * @param array $row          Search row.
-	 * @param bool  $show_excerpt Include excerpt.
-	 * @return array
+	 * @param array<string, mixed> $row          Search row.
+	 * @param bool                 $show_excerpt Include excerpt.
+	 * @return array<string, mixed>
 	 */
 	private static function normalize_item( array $row, bool $show_excerpt ): array {
 		$post_id = absint( $row['post_id'] ?? 0 );
@@ -262,7 +262,7 @@ class Related_Articles_Block {
 	/**
 	 * Clamp the requested limit.
 	 *
-	 * @param array $attributes Block attributes.
+	 * @param array<string, mixed> $attributes Block attributes.
 	 * @return int
 	 */
 	private static function limit( array $attributes ): int {
@@ -282,8 +282,12 @@ class Related_Articles_Block {
 		}
 
 		$text = get_post_field( 'post_excerpt', $post_id );
-		if ( '' === trim( (string) $text ) ) {
+		if ( ! is_string( $text ) || '' === trim( $text ) ) {
 			$text = get_post_field( 'post_content', $post_id );
+		}
+
+		if ( ! is_string( $text ) ) {
+			return '';
 		}
 
 		return wp_trim_words( wp_strip_all_tags( html_entity_decode( $text, ENT_QUOTES, 'UTF-8' ) ), 28, '...' );
@@ -326,7 +330,8 @@ class Related_Articles_Block {
 			return '';
 		}
 
-		return wp_date( get_option( 'date_format' ), $timestamp );
+		$formatted = wp_date( get_option( 'date_format' ), $timestamp );
+		return is_string( $formatted ) ? $formatted : '';
 	}
 
 	/**
