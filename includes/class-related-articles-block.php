@@ -34,6 +34,19 @@ class Related_Articles_Block {
 	}
 
 	/**
+	 * Register block editor script translations.
+	 */
+	public static function register_script_translations(): void {
+		$handle = 'wpvdb-blocks-related-articles-editor-script';
+
+		if ( ! wp_script_is( $handle, 'registered' ) ) {
+			return;
+		}
+
+		wp_set_script_translations( $handle, 'wpvdb-blocks', WPVDB_BLOCKS_DIR . '/languages' );
+	}
+
+	/**
 	 * Register editor preview routes.
 	 */
 	public static function register_routes(): void {

@@ -40,6 +40,7 @@ class Block_Registry {
 
 		if ( file_exists( $manifest ) && function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
 			wp_register_block_types_from_metadata_collection( $build_dir, $manifest );
+			self::register_script_translations();
 			return;
 		}
 
@@ -50,6 +51,19 @@ class Block_Registry {
 		foreach ( self::blocks() as $block_class ) {
 			if ( is_string( $block_class ) && method_exists( $block_class, 'register' ) ) {
 				$block_class::register();
+			}
+		}
+
+		self::register_script_translations();
+	}
+
+	/**
+	 * Register script translations for block editor assets.
+	 */
+	private static function register_script_translations(): void {
+		foreach ( self::blocks() as $block_class ) {
+			if ( is_string( $block_class ) && method_exists( $block_class, 'register_script_translations' ) ) {
+				$block_class::register_script_translations();
 			}
 		}
 	}

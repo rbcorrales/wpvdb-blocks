@@ -1,14 +1,19 @@
 # Files to exclude from the release bundle.
 .git
+.github
 .gitignore
+.distignore
+.hooks
 .DS_Store
 Thumbs.db
+.phpcs-cache
 composer.json
 composer.lock
 package.json
 package-lock.json
 bun.lock
 phpcs.xml
+phpstan.neon.dist
 README.md
 *.sql
 *.tar.gz
@@ -17,6 +22,7 @@ README.md
 # Directories
 release
 src
+stubs
 vendor
 node_modules
 AGENTS.md
