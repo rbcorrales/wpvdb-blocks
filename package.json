@@ -20,7 +20,8 @@
 		"lint": "bun run lint:js && bun run lint:scss && bun run lint:php",
 		"lint:js": "wp-scripts lint-js 'src/**/*.{js,jsx}'",
 		"lint:scss": "wp-scripts lint-style 'src/**/*.scss' --customSyntax postcss-scss",
-		"lint:php": "../wpvdb-smart-search/vendor/bin/phpcs --runtime-set testVersion 8.3- --standard=phpcs.xml wpvdb-blocks.php includes src",
+		"lint:php": "composer lint",
+		"analyze": "composer analyze",
 		"fix": "bun run fix:js && bun run fix:scss",
 		"fix:js": "wp-scripts lint-js --fix 'src/**/*.{js,jsx}'",
 		"fix:scss": "wp-scripts lint-style 'src/**/*.scss' --customSyntax postcss-scss --fix"

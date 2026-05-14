@@ -132,10 +132,6 @@ class Related_Articles_Block {
 			$children .= '</li>';
 		}
 
-		if ( '' === $children ) {
-			return self::editor_notice( __( 'No related articles found yet.', 'wpvdb-blocks' ) );
-		}
-
 		$html = '<section ' . self::wrapper_attributes() . '>';
 		if ( '' !== $title ) {
 			$html .= '<h2 class="' . esc_attr( self::element_class( 'title' ) ) . '">' . esc_html( $title ) . '</h2>';
@@ -210,7 +206,7 @@ class Related_Articles_Block {
 			return $result;
 		}
 
-		$rows  = is_array( $result['results'] ?? null ) ? $result['results'] : [];
+		$rows  = $result['results'];
 		$items = [];
 
 		foreach ( $rows as $row ) {
