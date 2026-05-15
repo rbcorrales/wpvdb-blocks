@@ -1,15 +1,19 @@
 # WPVDB Blocks
 
 [![Checks](https://github.com/rbcorrales/wpvdb-blocks/actions/workflows/ci.yml/badge.svg)](https://github.com/rbcorrales/wpvdb-blocks/actions/workflows/ci.yml)
-![WordPress](https://img.shields.io/badge/WordPress-6.9%2B-3858e9?logo=wordpress&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-8.3%2B-777bb4?logo=php&logoColor=white)
+[![WordPress](https://img.shields.io/badge/WordPress-6.9%2B-3858e9?logo=wordpress&logoColor=white)](#requirements)
+[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777bb4?logo=php&logoColor=white)](#requirements)
 [![License](https://img.shields.io/badge/License-GPLv2%2B-blue.svg)](LICENSE)
 
 Editorial WordPress blocks powered by [`wpvdb-search`](https://github.com/rbcorrales/wpvdb-search).
 
 ## Requirements
 
-[`wpvdb-search`](https://github.com/rbcorrales/wpvdb-search) installed and configured.
+| Requirement | Version or notes |
+|---|---|
+| WordPress | 6.9 or newer |
+| PHP | 8.3 or newer |
+| [`wpvdb-search`](https://github.com/rbcorrales/wpvdb-search) | Installed and configured |
 
 ## Blocks
 
@@ -50,4 +54,4 @@ bun run i18n
 
 ## License
 
-GPL-2.0-or-later.
+GPL-2.0-or-later. See [LICENSE](LICENSE).
