@@ -21,6 +21,7 @@ languages/source-map.json
 *.zip
 
 # Directories
+docs
 release
 scripts
 src

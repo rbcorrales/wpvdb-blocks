@@ -7,6 +7,8 @@
 
 Editorial WordPress blocks powered by [`wpvdb-search`](https://github.com/rbcorrales/wpvdb-search).
 
+![WPVDB related articles block](docs/screenshots/screenshot.png)
+
 ## Requirements
 
 | Requirement | Version or notes |
