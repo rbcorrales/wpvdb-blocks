@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPVDB Blocks 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpvdb-blocks\n"
-"POT-Creation-Date: 2026-05-14T15:51:01+00:00\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: 2026-05-14 00:00+0000\n"
 "Last-Translator: Ramon Corrales\n"
 "Language-Team: Spanish (Spain)\n"
@@ -40,47 +40,46 @@ msgstr "Automattic, Ramon Corrales"
 msgid "https://automattic.com/"
 msgstr "https://automattic.com/"
 
-#: includes/class-related-articles-block.php:103
-#: src/related-articles/index.js:55
+#: includes/class-related-articles-block.php:118
+#: src/related-articles/index.js:79
 msgid "Select a post to preview related articles."
 msgstr "Selecciona una entrada para previsualizar artículos relacionados."
 
-#: includes/class-related-articles-block.php:106
-#: src/related-articles/index.js:45
+#: includes/class-related-articles-block.php:121
+#: src/related-articles/index.js:67
 msgid "Related articles"
 msgstr "Artículos relacionados"
 
-#: includes/class-related-articles-block.php:114
+#: includes/class-related-articles-block.php:129
 msgid "Related articles are unavailable."
 msgstr "Los artículos relacionados no están disponibles."
 
-#: includes/class-related-articles-block.php:117
-#: includes/class-related-articles-block.php:134
-#: src/related-articles/index.js:127
+#: includes/class-related-articles-block.php:132
+#: src/related-articles/index.js:174
 msgid "No related articles found yet."
 msgstr "Aún no se encontraron artículos relacionados."
 
-#: wpvdb-blocks.php:40
+#: wpvdb-blocks.php:42
 msgid "WPVDB Blocks requires the WPVDB Search plugin to be active."
 msgstr "WPVDB Blocks requiere que el plugin WPVDB Search esté activo."
 
-#: src/related-articles/index.js:79
+#: src/related-articles/index.js:109
 msgid "Related articles preview unavailable."
 msgstr "La previsualización de artículos relacionados no está disponible."
 
-#: src/related-articles/index.js:95
+#: src/related-articles/index.js:130
 msgid "Related articles settings"
 msgstr "Ajustes de artículos relacionados"
 
-#: src/related-articles/index.js:97
+#: src/related-articles/index.js:134
 msgid "Title"
 msgstr "Título"
 
-#: src/related-articles/index.js:102
+#: src/related-articles/index.js:141
 msgid "Number of articles"
 msgstr "Número de artículos"
 
-#: src/related-articles/index.js:109
+#: src/related-articles/index.js:150
 msgid "Show excerpts"
 msgstr "Mostrar fragmentos"
 

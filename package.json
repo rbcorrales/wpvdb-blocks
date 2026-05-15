@@ -16,7 +16,10 @@
 	"scripts": {
 		"build": "wp-scripts build --webpack-copy-php --blocks-manifest",
 		"start": "wp-scripts start --webpack-copy-php --blocks-manifest",
-		"pot": "wp i18n make-pot . languages/wpvdb-blocks.pot --domain=wpvdb-blocks --exclude=build,node_modules,release,vendor",
+		"pot": "wp i18n make-pot . languages/wpvdb-blocks.pot --domain=wpvdb-blocks --exclude=build,node_modules,release,vendor --headers='{\"POT-Creation-Date\":\"\"}'",
+		"i18n": "bun run pot && for po in languages/wpvdb-blocks-*.po; do [ -e \"$po\" ] || continue; msgmerge --update --backup=none \"$po\" languages/wpvdb-blocks.pot; perl -0pi -e 's/POT-Creation-Date: [^\\\\]*\\\\n/POT-Creation-Date: \\\\n/g' \"$po\"; msgfmt --check \"$po\" -o \"${po%.po}.mo\"; done && bun run i18n:map && bun run i18n:json",
+		"i18n:map": "node scripts/generate-i18n-source-map.mjs",
+		"i18n:json": "wp i18n make-json languages languages --pretty-print --no-purge --use-map=languages/source-map.json",
 		"lint": "bun run lint:js && bun run lint:scss && bun run lint:php",
 		"lint:js": "wp-scripts lint-js 'src/**/*.{js,jsx}'",
 		"lint:js:staged": "wp-scripts lint-js",

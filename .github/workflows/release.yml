@@ -21,10 +21,12 @@ jobs:
       tag: ${{ github.event.inputs.tag || github.ref_name }}
       plugin-slug: wpvdb-blocks
       plugin-file: wpvdb-blocks.php
+      composer-install: true
       bun-install: true
       php-analyze-command: composer analyze
       bun-lint-command: bun run lint
       build-command: bun run build
+      i18n-command: bun run i18n
       required-artifacts: |
         build/blocks-manifest.php
         build/related-articles/block.json

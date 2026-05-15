@@ -15,12 +15,14 @@ bun.lock
 phpcs.xml
 phpstan.neon.dist
 README.md
+languages/source-map.json
 *.sql
 *.tar.gz
 *.zip
 
 # Directories
 release
+scripts
 src
 stubs
 vendor

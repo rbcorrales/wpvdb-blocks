@@ -1,0 +1,30 @@
+name: Maintain main
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  maintain:
+    uses: rbcorrales/wpvdb-scripts/.github/workflows/plugin-maintain-main.yml@main
+    with:
+      composer-install: false
+      bun-install: true
+      version-bump: true
+      plugin-file: wpvdb-blocks.php
+      version-constant: WPVDB_BLOCKS_VERSION
+      package-file: package.json
+      pot-file: languages/wpvdb-blocks.pot
+      pot-project: WPVDB Blocks
+      block-json-glob: src/*/block.json
+      build-command: bun run build
+      i18n-command: bun run i18n
+      commit-paths: |
+        wpvdb-blocks.php
+        package.json
+        src/*/block.json
+        languages/

@@ -15,6 +15,7 @@ jobs:
   checks:
     uses: rbcorrales/wpvdb-scripts/.github/workflows/plugin-ci.yml@main
     with:
+      composer-install: true
       bun-install: true
       php-analyze-command: composer analyze
       bun-lint-command: bun run lint
