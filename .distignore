@@ -14,7 +14,11 @@ package-lock.json
 bun.lock
 phpcs.xml
 phpstan.neon.dist
+AGENTS.md
+CLAUDE.md
+CONTRIBUTING.md
 README.md
+SECURITY.md
 languages/source-map.json
 *.sql
 *.tar.gz
@@ -28,4 +32,3 @@ src
 stubs
 vendor
 node_modules
-AGENTS.md
