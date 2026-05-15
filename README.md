@@ -29,6 +29,7 @@ The plugin loads blocks through `WPVDB_Blocks\Block_Registry`. It uses the metad
 Install dependencies:
 
 ```bash
+composer install
 bun install
 ```
 
@@ -42,6 +43,7 @@ Run the local checks:
 
 ```bash
 bun run lint
+bun run analyze
 ```
 
 The main branch maintenance workflow regenerates translation files and commits them when strings change. This plugin also has block editor JavaScript, so the i18n task rebuilds `languages/source-map.json` and refreshes the hashed JSON files WordPress uses for script translations. Release workflows regenerate translations before staging the zip and fail if generated files are out of date.
