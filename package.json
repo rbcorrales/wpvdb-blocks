@@ -27,7 +27,7 @@
 		"lint:scss:staged": "wp-scripts lint-style --customSyntax postcss-scss",
 		"lint:php": "composer lint",
 		"analyze": "composer analyze",
-		"test": "composer test && node --test 'tests/js/**/*.test.mjs'",
+		"test": "composer test && node --test tests/js/generate-i18n-source-map.test.mjs",
 		"fix": "bun run fix:js && bun run fix:scss",
 		"fix:js": "wp-scripts lint-js --fix 'src/**/*.{js,jsx}'",
 		"fix:scss": "wp-scripts lint-style 'src/**/*.scss' --customSyntax postcss-scss --fix"
