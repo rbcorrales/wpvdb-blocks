@@ -32,4 +32,4 @@ Agent guidance for this repository. Keep this file focused on non-obvious block,
 - Build and lint commands are defined in `package.json` and `composer.json`; prefer those scripts.
 - `stubs/wpvdb-search.stub.php` is for static analysis only. Do not load it at runtime.
 - If adding another block, check the source map generator, release the required artifacts, and add a block registration fallback in the same change.
-- Unit test coverage is still backlog work. When adding it, start with block rendering, search argument mapping, and i18n source map generation.
+- Unit tests cover block rendering and the i18n source map generator. Extend those tests when render output, search argument mapping, or source map behavior changes.

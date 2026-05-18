@@ -1,5 +1,12 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import {
+	existsSync,
+	mkdirSync,
+	readdirSync,
+	readFileSync,
+	unlinkSync,
+	writeFileSync,
+} from 'node:fs';
+import { dirname, join, posix } from 'node:path';
 
 const sourceRoot = 'src';
 const buildRoot = 'build';
@@ -29,7 +36,8 @@ for ( const blockName of readdirSync( sourceRoot ).sort() ) {
 
 	for ( const field of scriptFields ) {
 		for ( const scriptPath of normalizeScripts( blockJson[ field ] ) ) {
-			map[ join( sourceRoot, blockName, scriptPath ) ] = join( buildRoot, blockName, scriptPath );
+			map[ sourceMapPath( sourceRoot, blockName, scriptPath ) ] =
+				sourceMapPath( buildRoot, blockName, scriptPath );
 		}
 	}
 }
@@ -46,8 +54,19 @@ function normalizeScripts( value ) {
 	const values = Array.isArray( value ) ? value : [ value ];
 
 	return values
-		.filter( ( item ) => typeof item === 'string' && item.startsWith( 'file:./' ) && item.endsWith( '.js' ) )
+		.filter(
+			( item ) =>
+				typeof item === 'string' &&
+				item.startsWith( 'file:./' ) &&
+				item.endsWith( '.js' )
+		)
 		.map( ( item ) => item.replace( 'file:./', '' ) );
+}
+
+function sourceMapPath( ...parts ) {
+	return posix.join(
+		...parts.map( ( part ) => part.replaceAll( '\\', '/' ) )
+	);
 }
 
 function cleanJsonFiles() {
@@ -56,7 +75,10 @@ function cleanJsonFiles() {
 	}
 
 	for ( const fileName of readdirSync( languagesRoot ) ) {
-		if ( fileName.startsWith( jsonPrefix ) && fileName.endsWith( '.json' ) ) {
+		if (
+			fileName.startsWith( jsonPrefix ) &&
+			fileName.endsWith( '.json' )
+		) {
 			unlinkSync( join( languagesRoot, fileName ) );
 		}
 	}

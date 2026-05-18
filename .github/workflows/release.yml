@@ -25,6 +25,7 @@ jobs:
       bun-install: true
       php-analyze-command: composer analyze
       bun-lint-command: bun run lint
+      test-command: bun run test
       build-command: bun run build
       i18n-command: bun run i18n
       required-artifacts: |
