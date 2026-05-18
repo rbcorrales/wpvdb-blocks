@@ -2,7 +2,7 @@
 set -eu
 
 staged_files="$(git diff --cached --name-only --diff-filter=ACMR)"
-js_files="$(printf '%s\n' "$staged_files" | grep -E '^src/.*\.(js|jsx)$' || true)"
+js_files="$(printf '%s\n' "$staged_files" | grep -E '^(src/.*\.(js|jsx)|scripts/.*\.m?js)$' || true)"
 scss_files="$(printf '%s\n' "$staged_files" | grep -E '^src/.*\.scss$' || true)"
 
 if printf '%s\n' "$staged_files" | grep -E '\.php$' >/dev/null 2>&1; then
