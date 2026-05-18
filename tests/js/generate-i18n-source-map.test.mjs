@@ -37,18 +37,33 @@ test( 'generates source maps for all block script fields', () => {
 
 	execFileSync( process.execPath, [ scriptPath ], { cwd: root } );
 
-	const map = JSON.parse( readFileSync( join( root, 'languages/source-map.json' ), 'utf8' ) );
+	const map = JSON.parse(
+		readFileSync( join( root, 'languages/source-map.json' ), 'utf8' )
+	);
 
-	assert.deepEqual( map, {
-		'src/example/editor-module.js': 'build/example/editor-module.js',
-		'src/example/frontend-module.js': 'build/example/frontend-module.js',
-		'src/example/frontend.js': 'build/example/frontend.js',
-		'src/example/index.js': 'build/example/index.js',
-		'src/example/view-module.js': 'build/example/view-module.js',
-		'src/example/view.js': 'build/example/view.js',
-	} );
-	assert.throws( () => readFileSync( join( root, 'languages/wpvdb-blocks-old.json' ) ) );
-	assert.equal( readFileSync( join( root, 'languages/other-domain-old.json' ), 'utf8' ), '{}' );
+	assert.deepEqual(
+		map,
+		{
+			'src/example/editor-module.js': 'build/example/editor-module.js',
+			'src/example/frontend-module.js':
+				'build/example/frontend-module.js',
+			'src/example/frontend.js': 'build/example/frontend.js',
+			'src/example/index.js': 'build/example/index.js',
+			'src/example/view-module.js': 'build/example/view-module.js',
+			'src/example/view.js': 'build/example/view.js',
+		},
+		'Source map should include every block script field.'
+	);
+	assert.throws(
+		() => readFileSync( join( root, 'languages/wpvdb-blocks-old.json' ) ),
+		undefined,
+		'Stale domain JSON files should be removed.'
+	);
+	assert.equal(
+		readFileSync( join( root, 'languages/other-domain-old.json' ), 'utf8' ),
+		'{}',
+		'JSON files from other domains should be preserved.'
+	);
 } );
 
 function createFixture( files ) {

@@ -112,7 +112,9 @@ namespace {
 	}
 
 	function wp_date( string $format, int $timestamp ): string {
-		return date( $format, $timestamp );
+		return ( new \DateTimeImmutable( '@' . $timestamp ) )
+			->setTimezone( new \DateTimeZone( 'UTC' ) )
+			->format( $format );
 	}
 
 	function get_option( string $name ): mixed {
