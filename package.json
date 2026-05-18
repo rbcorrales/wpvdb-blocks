@@ -29,7 +29,7 @@
 		"analyze": "composer analyze",
 		"test": "composer test && wp-scripts test-unit-js",
 		"fix": "bun run fix:js && bun run fix:scss",
-		"fix:js": "wp-scripts lint-js --fix 'src/**/*.{js,jsx}'",
+		"fix:js": "wp-scripts lint-js --fix 'src/**/*.{js,jsx}' 'scripts/**/*.js' 'scripts/**/*.mjs'",
 		"fix:scss": "wp-scripts lint-style 'src/**/*.scss' --customSyntax postcss-scss --fix"
 	},
 	"devDependencies": {

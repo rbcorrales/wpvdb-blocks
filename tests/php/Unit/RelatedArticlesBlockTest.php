@@ -83,7 +83,7 @@ final class RelatedArticlesBlockTest extends TestCase {
 		);
 		self::assertStringContainsString( '&lt;em&gt;Read next&lt;/em&gt;', $html, 'Block titles should be escaped.' );
 		self::assertStringContainsString( '&lt;script&gt;Bad&lt;/script&gt; Related title', $html, 'Related article titles should be escaped.' );
-		self::assertStringContainsString( 'href="https://example.test/article?x=&lt;bad&gt;"', $html, 'Related article URLs should be escaped.' );
+		self::assertStringContainsString( 'href="https://example.test/article?x=bad"', $html, 'Related article URLs should be sanitized.' );
 		self::assertStringContainsString( 'Useful context for the related article.', $html, 'Related article excerpts should be rendered.' );
 		self::assertStringContainsString( 'May 17, 2026', $html, 'Related article dates should be formatted.' );
 		self::assertStringNotContainsString( '<script>Bad</script>', $html, 'Raw script tags should not be rendered.' );
@@ -118,6 +118,8 @@ final class RelatedArticlesBlockTest extends TestCase {
 			new WP_Block( [ 'postId' => 7 ] )
 		);
 
+		self::assertStringContainsString( 'href="https://example.test/article"', $html, 'Related articles should still render when excerpts are disabled.' );
+		self::assertStringContainsString( 'Related title', $html, 'Related article titles should still render when excerpts are disabled.' );
 		self::assertStringNotContainsString( 'Visible only when excerpts are enabled.', $html, 'Disabled excerpts should not render.' );
 	}
 

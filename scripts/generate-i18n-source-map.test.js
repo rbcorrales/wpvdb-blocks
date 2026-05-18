@@ -108,12 +108,10 @@ test( 'ignores non file script handles and non JavaScript assets', () => {
 		readFileSync( join( root, 'languages/source-map.json' ), 'utf8' )
 	);
 
-	expect( map ).toEqual(
-		expect.objectContaining( {
-			'src/example/index.js': 'build/example/index.js',
-			'src/example/view-module.js': 'build/example/view-module.js',
-		} )
-	);
+	expect( map ).toEqual( {
+		'src/example/index.js': 'build/example/index.js',
+		'src/example/view-module.js': 'build/example/view-module.js',
+	} );
 } );
 
 test( 'creates languages directory and skips folders without block metadata', () => {

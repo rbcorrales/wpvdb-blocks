@@ -80,7 +80,16 @@ namespace {
 	}
 
 	function esc_url( mixed $value ): string {
-		return htmlspecialchars( (string) $value, ENT_QUOTES, 'UTF-8' );
+		$url = trim( (string) $value );
+		$url = str_replace( [ "\r", "\n", "\t" ], '', $url );
+		$url = preg_replace( '/[^a-z0-9-~+_.?#=!&;,\/:%@$|*\'()\[\]\x80-\xff]/i', '', $url ) ?? '';
+
+		$scheme = parse_url( $url, PHP_URL_SCHEME );
+		if ( is_string( $scheme ) && ! in_array( strtolower( $scheme ), [ 'http', 'https', 'mailto' ], true ) ) {
+			return '';
+		}
+
+		return htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
 	}
 
 	function esc_html( mixed $value ): string {
