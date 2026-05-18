@@ -7,6 +7,8 @@
 .DS_Store
 Thumbs.db
 .phpcs-cache
+.phpunit.cache
+.phpunit.result.cache
 composer.json
 composer.lock
 package.json
@@ -14,6 +16,8 @@ package-lock.json
 bun.lock
 phpcs.xml
 phpstan.neon.dist
+phpunit.xml
+phpunit.xml.dist
 AGENTS.md
 CLAUDE.md
 CONTRIBUTING.md
@@ -30,5 +34,6 @@ release
 scripts
 src
 stubs
+tests
 vendor
 node_modules
