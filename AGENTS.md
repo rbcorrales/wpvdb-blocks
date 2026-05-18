@@ -6,7 +6,7 @@ Agent guidance for this repository. Keep this file focused on non-obvious block,
 
 - This repo is public. Do not add credentials, tokens, application passwords, site-specific hostnames, or private deployment details.
 - Search behavior belongs in `https://github.com/rbcorrales/wpvdb-search`. Blocks should call the public search API and render the result.
-- Do not add ingestion, queueing, provider settings, or embedding storage ownership here. Those belong in `https://github.com/rbcorrales/wpvdb`.
+- Do not add ingestion, queueing, provider settings, or embedding storage ownership here. Those belong in `https://github.com/Automattic/wpvdb`.
 - Keep Playground fixture behavior in `https://github.com/rbcorrales/wpvdb-playground-demo`. Do not hardcode demo models or sample data in block code.
 - The suite Playground Blueprint consumes this plugin's release zip. Keep the zip directly installable when changing `.distignore`, build outputs, or required artifacts.
 
@@ -29,7 +29,7 @@ Agent guidance for this repository. Keep this file focused on non-obvious block,
 
 ## Development notes
 
-- Build and lint commands are defined in `package.json` and `composer.json`; prefer those scripts.
+- Build, lint, and test commands are defined in `package.json` and `composer.json`; prefer those scripts.
 - `stubs/wpvdb-search.stub.php` is for static analysis only. Do not load it at runtime.
 - If adding another block, check the source map generator, release the required artifacts, and add a block registration fallback in the same change.
 - Unit tests cover block rendering and the i18n source map generator. Extend those tests when render output, search argument mapping, or source map behavior changes.
